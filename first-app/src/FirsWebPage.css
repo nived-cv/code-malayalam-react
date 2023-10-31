@@ -33,7 +33,7 @@ ul{
     background-color:green;
     color:white;
     border:none;
-    width:4vw;
+    width:fit-content;
     height:2vw;
     font-size:16px;
     color:white;

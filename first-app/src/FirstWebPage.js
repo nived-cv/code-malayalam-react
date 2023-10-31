@@ -54,7 +54,7 @@ const WebApp = ()=>{
         <ChildrenExample>
             <h2>Poda</h2>
             <h2>Poda</h2>
-            </ChildrenExample>
+        </ChildrenExample>
 
             <span>{React.Children.count(ChildrenExample.Children)}</span>
 
