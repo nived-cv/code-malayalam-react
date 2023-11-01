@@ -1,8 +1,8 @@
 [
     {"title":"Nived","description":"nothing , go away !",
-    "isActive":"true"},
+    "isActive":true},
     {"title":"Todays topics","description":"something , please stay !",
-    "isActive":"false"},
+    "isActive":false},
     {"title":"killer whale","description":"Eats a lot of Fish",
-    "isActive":"true"}
+    "isActive":true}
 ]

@@ -1,9 +1,12 @@
-import React,{ useState } from "react";
+import React,{ useEffect, useState } from "react";
 import ListItem from "./ListItem";
 
 const List = ({props}) =>{
-
     let [obj,setObj] = useState(props)
+
+    useEffect(()=>{
+        setObj(props)
+    },[props])
 
     const filterSelection = (e) => {
         let value = e.target.value

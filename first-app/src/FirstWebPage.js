@@ -1,32 +1,36 @@
-import React from "react";
+import React, { useEffect,useState } from "react";
 import './FirsWebPage.css';
 import Header from './Header'
 import List from "./List";
+import AddNew from "./AddNew";
 
 const WebApp = ()=>{
 
-    const obj = [
-        {"title":"Nived","description":"nothing , go away !",
-        "isActive":true},
-        {"title":"Todays topics","description":"something , please stay !",
-        "isActive":false},
-        {"title":"killer whale","description":"Eats a lot of Fish",
-        "isActive":true}
-    ]
-const fetchData = async() =>{
+    const fetchData = async() =>{
 
-    const raw = await fetch('/data.json')
-    let data = await raw.json()
-    return data
-}
+        const raw = await fetch('/data.json')
+        let data = await raw.json()
+        return data
+    }
+
+    const createNewEL = (text) =>{
+        console.log(text)
+    }
     
-    let fetchedData = [] || fetchData()
-    //fetch('/data.json').then((data) => {return data.json()}).then((dat2 => {fetchedData = dat2}))
+    let [data,setData] = useState([])
+
+    useEffect(async ()=>{   
     
+        const data = await fetchData()
+        if(data)
+        setData(data)
+    },[])
+
     return (
     <div>
         <Header/>
-        <List props = { obj }/>
+        <AddNew onCreate={ createNewEL }/>
+        <List props={data}/>
 
     </div>)
 }
