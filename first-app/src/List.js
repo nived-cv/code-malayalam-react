@@ -3,13 +3,12 @@ import ListItem from "./ListItem";
 
 const List = ({props}) =>{
 
-    let obj = props
+    let [obj,setObj] = useState(props)
 
     const filterSelection = (e) => {
         let value = e.target.value
-        obj = props
-    
-        obj = obj.filter((ele)=>{
+        let filter_array = props
+        filter_array = props.filter((ele)=>{
     
             if(value == 'all')
             return true
@@ -20,6 +19,7 @@ const List = ({props}) =>{
             if(value == 'inactive')
             return ele.isActive === false
         })
+        setObj(filter_array)
     }
     
     return(<div>
