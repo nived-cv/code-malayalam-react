@@ -1,11 +1,16 @@
-import React, { useEffect,useState } from "react";
+import React, { createContext, useEffect,useState } from "react";
 import './FirsWebPage.css';
 import Header from './Header'
 import List from "./List";
 import AddNew from "./AddNew";
+import Counter from "./Counter";
+import ToolTip from "./ToolTip";
+
+const MyContext = createContext()
 
 const WebApp = ()=>{
 
+    let [data,setData] = useState([])
     const fetchData = async() =>{
 
         const raw = await fetch('/data.json')
@@ -14,25 +19,29 @@ const WebApp = ()=>{
     }
 
     const createNewEL = (text) =>{
-        console.log(text)
+        const new_obj = {"title":text,"description":"new description","isActive":false}
+        setData([...data,new_obj])
     }
     
-    let [data,setData] = useState([])
+    useEffect(()=>{   
 
-    useEffect(async ()=>{   
-    
-        const data = await fetchData()
-        if(data)
-        setData(data)
+        fetchData().then((data)=>setData(data))
     },[])
 
     return (
     <div>
         <Header/>
         <AddNew onCreate={ createNewEL }/>
-        <List props={data}/>
-
+        <MyContext.Provider value={data}>
+            <List props={data}/>
+        </MyContext.Provider>        
+        <Counter/>
+        <ToolTip />
     </div>)
 }
 
 export default WebApp
+export { 
+    MyContext 
+}
+// 

@@ -1,5 +1,6 @@
 import React,{ useEffect, useState } from "react";
 import ListItem from "./ListItem";
+import JustInfo from "./JustInfo";
 
 const List = ({props}) =>{
     let [obj,setObj] = useState(props)
@@ -10,8 +11,8 @@ const List = ({props}) =>{
 
     const filterSelection = (e) => {
         let value = e.target.value
-        let filter_array = props
-        filter_array = props.filter((ele)=>{
+        //let filter_array = props
+        let filter_array = props.filter((ele)=>{
     
             if(value == 'all')
             return true
@@ -33,8 +34,10 @@ const List = ({props}) =>{
             </select>
 
             {obj.map((item) => {
-                return <ListItem props = {item}/>
+                return <ListItem key={item.title} props = {item}/>
             })}
+
+            <JustInfo />
         </div>
 )}
 

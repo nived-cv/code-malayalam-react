@@ -1,0 +1,21 @@
+
+.counter{
+    display:flex;
+    flex-direction:column;
+    width:fit-content;
+    row-gap:1vh;
+    margin-inline:auto;
+}
+.counter button{
+    background-color:aquamarine;
+    border:0;
+    padding:10px;
+    color:rebeccapurple;
+}
+
+.count_value{
+    font-size:18px;
+    font-weight:bold;
+    color:rebeccapurple;
+    text-align: center;
+}
