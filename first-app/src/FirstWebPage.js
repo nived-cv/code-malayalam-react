@@ -5,6 +5,7 @@ import List from "./List";
 import AddNew from "./AddNew";
 import Counter from "./Counter";
 import ToolTip from "./ToolTip";
+import Usereducer from "./Usereducer"
 
 const MyContext = createContext()
 
@@ -37,6 +38,7 @@ const WebApp = ()=>{
         </MyContext.Provider>        
         <Counter/>
         <ToolTip />
+        <Usereducer />
     </div>)
 }
 
@@ -44,4 +46,4 @@ export default WebApp
 export { 
     MyContext 
 }
-// 
+//

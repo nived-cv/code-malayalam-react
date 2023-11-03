@@ -1,0 +1,28 @@
+
+
+.tooltip{
+    position:relative;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+}
+
+.show-tooltip,.hide-tooltip{
+    position:absolute;
+    top:-10px;
+    background-color:red;
+    color:white;
+    padding:5px;
+    width:fit-content;
+}
+.show-tooltip{
+    visibility: visible;
+}
+
+.hide-tooltip{
+    visibility:hidden;
+}
+
+h2{
+    width:fit-content;
+}
